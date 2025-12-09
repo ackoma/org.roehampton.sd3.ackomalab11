@@ -47,5 +47,5 @@ Accommodation <|-- Hotel
 Accommodation <|-- Villa
 User --> Booking
 Booking --> Accommodation
-Booking *-- User
+Booking ..> User
 @enduml
