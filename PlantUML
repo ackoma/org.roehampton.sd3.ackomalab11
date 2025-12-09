@@ -1,0 +1,51 @@
+@startuml
+class Accommodation {
+- int id
+- String name
+- String location
+- double price
+- boolean booked
++ Accommodation(int id, String name, String location, double price)
++ String getName()
++ boolean isBooked()
++ void setBooked(boolean booked)
++ String toString()
+}
+class Flat {
+- boolean kitchen
++ String toString()
+}
+class Hotel {
+- int stars
++ String toString()
+}
+class Villa {
+- boolean pool
++ String toString()
+}
+class User {
+- int id
+- String name
+- Booking currentBooking
++ User(int id, String name)
++ void book(Accommodation place)
++ void cancel(Accommodation place)
+}
+class Booking {
+- static int nextID
+- int id
+- User user
+- Accommodation accommodation
+- boolean active
++ Booking(User user, Accommodation accommodation)
++ Accommodation getAccommodation()
++ boolean isActive()
++ void cancel()
+}
+Accommodation <|-- Flat
+Accommodation <|-- Hotel
+Accommodation <|-- Villa
+User --> Booking
+Booking --> Accommodation
+Booking *-- User
+@enduml
